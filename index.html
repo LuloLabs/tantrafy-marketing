@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tantrafy — Tantric Meditation for Sexual Wellness</title>
+<meta name="description" content="Guided tantric meditation for sexual wellness. Reconnect with your body through breathwork and ancient practice. Free to try, no signup required.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0c0620;
+    --bg-card: rgba(60, 30, 120, 0.12);
+    --border: rgba(180, 136, 255, 0.12);
+    --text: #ede8f5;
+    --text-muted: #8a80a8;
+    --accent: #b488ff;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    padding: 80px 24px 64px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: -40%; left: -20%;
+    width: 140%; height: 140%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(120, 50, 220, 0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 60%, rgba(160, 70, 240, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(200, 150, 60, 0.05) 0%, transparent 40%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .hero-wordmark {
+    font-size: 14px;
+    letter-spacing: 5px;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    opacity: 0.8;
+  }
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 7vw, 56px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    color: var(--text);
+    font-style: italic;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 440px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  .hero-cta {
+    display: inline-block;
+    padding: 16px 36px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'Sora', sans-serif;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(140, 80, 255, 0.3);
+  }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(140, 80, 255, 0.4); text-decoration: none; }
+  .hero-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 12px;
+    opacity: 0.7;
+  }
+  .hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-badges img { height: 44px; transition: opacity 0.2s; }
+  .hero-badges a:hover img { opacity: 0.85; }
+
+  /* ── Value Props ── */
+  .value-section {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 64px 24px;
+  }
+  .value-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  @media (max-width: 600px) {
+    .value-grid { grid-template-columns: 1fr; }
+  }
+  .value-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .value-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(140, 80, 255, 0.1);
+    border: 1px solid rgba(180, 136, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 22px;
+  }
+  .value-title {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .value-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── Audience ── */
+  .audience-section {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+  .audience-header {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+  .audience-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .audience-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  @media (max-width: 500px) {
+    .audience-card { flex-direction: column; }
+  }
+  .audience-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+  .audience-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    margin: 0 auto;
+    opacity: 0.3;
+  }
+
+  /* ── Container for legal sections ── */
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin-bottom: 48px;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--accent); }
+  h2 {
+    font-size: 22px;
+    font-weight: 500;
+    margin: 48px 0 16px;
+    color: var(--text);
+  }
+  h2:first-of-type { margin-top: 0; }
+  h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 28px 0 8px;
+    color: var(--text);
+  }
+  p, li {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  ul { padding-left: 20px; margin-bottom: 16px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .section {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+  .faq-item { margin-bottom: 20px; }
+  .faq-q { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .faq-a { font-size: 14px; color: var(--text-muted); }
+  .contact-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 16px;
+  }
+  .contact-box p { margin-bottom: 8px; }
+  .footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-wordmark">Tantrafy</div>
+    <h1 class="hero-headline">Arousal is a practice.</h1>
+    <p class="hero-sub">Guided tantric meditation for sexual wellness. Reconnect with your body through breathwork, sensation, and ancient practice.</p>
+    <a href="#" class="hero-cta">Try it free</a>
+    <div class="hero-note">No signup required</div>
+    <div class="hero-badges">
+      <a href="https://apps.apple.com/app/YOUR_APP_ID" target="_blank"><img src="app-store-badge.svg" alt="Pre-order on the App Store"></a>
+      <a href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank"><img src="google-play-badge.png" alt="Pre-register on Google Play"></a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ VALUE PROPS ═══ -->
+<div class="value-section">
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="value-icon">◎</div>
+      <div class="value-title">Body awareness</div>
+      <div class="value-desc">Guided breathwork to reconnect with physical sensation and presence.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">◇</div>
+      <div class="value-title">Shame-free</div>
+      <div class="value-desc">Sexual wellness as a sacred practice — no judgment, no performance.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">∞</div>
+      <div class="value-title">No end goal</div>
+      <div class="value-desc">Not about chasing a result. About being present in your body, right now.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ AUDIENCES ═══ -->
+<div class="audience-section">
+  <div class="audience-header">Sessions for every body</div>
+  <div class="audience-cards">
+    <div class="audience-card">
+      <div class="audience-label">For Him</div>
+      <div class="audience-text">A guided practice to reconnect with sensation — no screen, no performance, just you and your breath.</div>
+    </div>
+    <div class="audience-card">
+      <div class="audience-label">For Her</div>
+      <div class="audience-text">A practice in self-intimacy. Reconnect with pleasure as something you give yourself.</div>
+    </div>
+    <div class="audience-card">
+      <div class="audience-label">For Two</div>
+      <div class="audience-text">Synchronized breath, shared presence. Deepen what's between you without saying a word.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ LEGAL / SUPPORT SECTIONS ═══ -->
+<div class="container">
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#support">Support</a>
+    <a href="#faq">FAQ</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#terms">Terms of Service</a>
+  </nav>
+
+  <div class="section" id="about">
+    <h2>About Tantrafy</h2>
+    <p>Tantrafy is a guided audio meditation app focused on sexual wellness. Through tantric meditation practices, Tantrafy helps individuals and couples reconnect with their bodies, deepen intimacy, and treat arousal as a sacred, integral part of life — just like exercise, nutrition, and mental health.</p>
+    <p>Our guided audio sessions are designed for solo practitioners (men and women) and couples. Each session uses breathwork, body awareness, and tantric meditation techniques to help you slow down, feel more, and build a healthier relationship with your body and sexuality.</p>
+
+    <h3>What Tantrafy is</h3>
+    <ul>
+      <li>Guided audio meditation sessions rooted in tantric traditions</li>
+      <li>A practice for reconnecting with physical sensation and body awareness</li>
+      <li>Sessions designed for men, women, and couples</li>
+      <li>A safe, shame-free space for sexual wellness</li>
+    </ul>
+
+    <h3>What Tantrafy is not</h3>
+    <ul>
+      <li>Tantrafy does not contain explicit or pornographic content</li>
+      <li>Tantrafy is not a substitute for medical or therapeutic treatment</li>
+      <li>Tantrafy does not provide personalized health advice</li>
+    </ul>
+
+    <h3>Content Rating</h3>
+    <p>Tantrafy is rated 17+ due to mature themes related to sexual wellness and intimacy. All content is audio-only guided meditation. There is no explicit imagery, nudity, or graphic content of any kind.</p>
+  </div>
+
+  <div class="section" id="support">
+    <h2>Support</h2>
+    <p>We're here to help. If you have questions, feedback, or need assistance with the app, please reach out.</p>
+
+    <div class="contact-box">
+      <p><strong style="color: var(--text)">Email:</strong> <a href="mailto:support@lulolabs.co">support@lulolabs.co</a></p>
+      <p><strong style="color: var(--text)">Response time:</strong> We typically respond within 24-48 hours.</p>
+      <p><strong style="color: var(--text)">Developer:</strong> Lulo Labs LLC</p>
+    </div>
+
+    <h3>Common Issues</h3>
+    <ul>
+      <li><strong style="color: var(--text)">Audio not playing:</strong> Ensure your device is not in silent mode and the volume is turned up. Try closing and reopening the app.</li>
+      <li><strong style="color: var(--text)">App not downloading:</strong> Check your internet connection and ensure you have sufficient storage on your device.</li>
+      <li><strong style="color: var(--text)">Account issues:</strong> Contact us at <a href="mailto:support@lulolabs.co">support@lulolabs.co</a> with your account details.</li>
+    </ul>
+  </div>
+
+  <div class="section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">What is tantric meditation?</div>
+      <div class="faq-a">Tantric meditation is an ancient practice that uses breathwork, body awareness, and mindful attention to sensation to deepen your connection with your body. Unlike conventional meditation that often focuses on stillness or detachment, tantric meditation embraces the body and its sensations as a path to presence and self-awareness.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is this app appropriate for beginners?</div>
+      <div class="faq-a">Yes. Our guided sessions are designed to be accessible to anyone, regardless of meditation experience. Each session provides clear, step-by-step guidance.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does Tantrafy contain explicit content?</div>
+      <div class="faq-a">No. Tantrafy is an audio-only guided meditation app. There is no explicit imagery, video, or graphic content. Sessions focus on breathwork, body awareness, and mindful connection.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Who are the sessions for?</div>
+      <div class="faq-a">We offer sessions designed for three audiences: solo sessions for men, solo sessions for women, and guided sessions for couples to practice together.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is Tantrafy free?</div>
+      <div class="faq-a">Tantrafy is currently free to use during our early access period. Pricing may change in the future as we add more content and features.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I cancel my pre-order?</div>
+      <div class="faq-a">You can cancel your pre-order at any time through the App Store or Google Play. No charge is made until the app is released.</div>
+    </div>
+  </div>
+
+  <div class="section" id="privacy">
+    <h2>Privacy Policy</h2>
+    <p><em>Last updated: May 3, 2026</em></p>
+    <p>Lulo Labs LLC ("we", "our", "us") operates the Tantrafy mobile application. This privacy policy explains how we collect, use, and protect your information.</p>
+
+    <h3>Information We Collect</h3>
+    <ul>
+      <li><strong style="color: var(--text)">Account information:</strong> Email address, if you create an account or join our mailing list.</li>
+      <li><strong style="color: var(--text)">Usage data:</strong> Anonymous analytics data about how you interact with the app, including which sessions you play and how long you listen. We use PostHog for analytics.</li>
+      <li><strong style="color: var(--text)">Device information:</strong> Device type, operating system, and app version for troubleshooting purposes.</li>
+    </ul>
+
+    <h3>How We Use Your Information</h3>
+    <ul>
+      <li>To provide and improve the Tantrafy service</li>
+      <li>To understand which content resonates with our users</li>
+      <li>To communicate with you about updates and new features</li>
+      <li>To respond to support requests</li>
+    </ul>
+
+    <h3>What We Do Not Collect</h3>
+    <ul>
+      <li>We do not collect health or medical data</li>
+      <li>We do not record or store any audio from your device</li>
+      <li>We do not sell your data to third parties</li>
+      <li>We do not track your activity outside of the Tantrafy app</li>
+    </ul>
+
+    <h3>Data Storage and Security</h3>
+    <p>Your data is stored securely using industry-standard encryption. We retain your data only as long as necessary to provide the service. You can request deletion of your data at any time by contacting <a href="mailto:support@lulolabs.co">support@lulolabs.co</a>.</p>
+
+    <h3>Third-Party Services</h3>
+    <ul>
+      <li><strong style="color: var(--text)">PostHog:</strong> For anonymous usage analytics.</li>
+      <li><strong style="color: var(--text)">Apple App Store / Google Play:</strong> For app distribution and payments. These platforms have their own privacy policies.</li>
+    </ul>
+
+    <h3>Children's Privacy</h3>
+    <p>Tantrafy is rated 17+ and is not intended for use by anyone under the age of 17. We do not knowingly collect information from minors.</p>
+
+    <h3>Changes to This Policy</h3>
+    <p>We may update this privacy policy from time to time. We will notify you of significant changes through the app or by email.</p>
+
+    <h3>Contact</h3>
+    <p>For questions about this privacy policy, contact us at <a href="mailto:support@lulolabs.co">support@lulolabs.co</a>.</p>
+  </div>
+
+  <div class="section" id="terms">
+    <h2>Terms of Service</h2>
+    <p><em>Last updated: May 3, 2026</em></p>
+    <p>These terms govern your use of the Tantrafy application operated by Lulo Labs LLC.</p>
+
+    <h3>Acceptance of Terms</h3>
+    <p>By downloading or using Tantrafy, you agree to these terms. If you do not agree, do not use the app.</p>
+
+    <h3>Description of Service</h3>
+    <p>Tantrafy provides guided audio meditation sessions focused on sexual wellness and body awareness. The content is for educational and personal wellness purposes only.</p>
+
+    <h3>Eligibility</h3>
+    <p>You must be at least 17 years old to use Tantrafy. By using the app, you confirm that you meet this age requirement.</p>
+
+    <h3>User Conduct</h3>
+    <p>You agree to use Tantrafy for personal, non-commercial purposes only. You may not redistribute, record, or republish any content from the app.</p>
+
+    <h3>Health Disclaimer</h3>
+    <p>Tantrafy is not a medical device and does not provide medical advice, diagnosis, or treatment. The content is not a substitute for professional medical or psychological care. If you have concerns about your sexual health, consult a qualified healthcare provider.</p>
+
+    <h3>Intellectual Property</h3>
+    <p>All content in Tantrafy — including audio recordings, text, graphics, and the app itself — is the property of Lulo Labs LLC and is protected by copyright law.</p>
+
+    <h3>Limitation of Liability</h3>
+    <p>Tantrafy is provided "as is" without warranties of any kind. Lulo Labs LLC is not liable for any damages arising from your use of the app.</p>
+
+    <h3>Termination</h3>
+    <p>We reserve the right to suspend or terminate your access to Tantrafy at any time, for any reason, without notice.</p>
+
+    <h3>Changes to Terms</h3>
+    <p>We may update these terms from time to time. Continued use of the app after changes constitutes acceptance of the new terms.</p>
+
+    <h3>Governing Law</h3>
+    <p>These terms are governed by the laws of the United States. Any disputes will be resolved in the courts of the state in which Lulo Labs LLC is registered.</p>
+
+    <h3>Contact</h3>
+    <p>For questions about these terms, contact us at <a href="mailto:support@lulolabs.co">support@lulolabs.co</a>.</p>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2026 Lulo Labs LLC. All rights reserved.</p>
+  </div>
+
+</div>
+</body>
+</html>
